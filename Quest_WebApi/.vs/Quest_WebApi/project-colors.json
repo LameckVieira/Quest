@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "64358193-dcac-454a-8a4f-32378f35656a": {
+      "ProjectGuid": "64358193-dcac-454a-8a4f-32378f35656a",
+      "DisplayName": "Quest_WebApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
