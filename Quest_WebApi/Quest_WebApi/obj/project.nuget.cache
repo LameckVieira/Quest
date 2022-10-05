@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aNSOiBr+oQhkiNjOuCKz9dJE3z1er37fNP96BehEc3FjM01S6x7IxQbGC6xGQJKZ6GehHiuuifdiK0FSZpuvJA==",
+  "dgSpecHash": "tTeVNWNuppbbX+0Ys2OEo15A+m+GrTI6WZZWCTyb7fdbvv6YwA0IPGzlVbl+K/0S8X+DsFDIvQ1gXTTmyRrqAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lamec\\Desktop\\QuestApi\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
+  "projectFilePath": "C:\\Users\\lamec\\Desktop\\Quest\\Nova pasta\\Quest\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lamec\\.nuget\\packages\\epplus\\4.5.3.2\\epplus.4.5.3.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -30,10 +30,9 @@
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.configuration.json\\2.2.0\\microsoft.extensions.configuration.json.2.2.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\2.2.0\\microsoft.extensions.fileproviders.physical.2.2.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\2.2.0\\microsoft.extensions.filesystemglobbing.2.2.0.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\5.0.0\\microsoft.extensions.hosting.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.extensions.logging.splunk\\2.0.0\\microsoft.extensions.logging.splunk.2.0.0.nupkg.sha512",
@@ -55,9 +54,6 @@
     "C:\\Users\\lamec\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\nlog\\5.0.4\\nlog.5.0.4.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\nlog.extensions.hosting\\5.0.4\\nlog.extensions.hosting.5.0.4.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\nlog.extensions.logging\\5.0.4\\nlog.extensions.logging.5.0.4.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
@@ -159,7 +155,7 @@
     "C:\\Users\\lamec\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\lamec\\.nuget\\packages\\umbracocms.core\\8.18.5\\umbracocms.core.8.18.5.nupkg.sha512",
+    "C:\\Users\\lamec\\.nuget\\packages\\umbracocms.core\\8.1.0\\umbracocms.core.8.1.0.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\umbracoforms.core\\8.13.2\\umbracoforms.core.8.13.2.nupkg.sha512",
     "C:\\Users\\lamec\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
@@ -168,7 +164,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'UmbracoCms.Core 8.18.5' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "O pacote 'UmbracoCms.Core 8.1.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "UmbracoCms.Core",
       "targetGraphs": [
         "net5.0"

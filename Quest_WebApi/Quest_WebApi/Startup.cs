@@ -1,119 +1,102 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Quest_WebApi.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Microsoft.OpenApi.Models;
+using System.IO;
+using System.Reflection;
 
 namespace Quest_WebApi
 {
     public class Startup
     {
 
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers()
 
-        //services.AddAutoMapper(typeof(UserProfile));
-
-        var connectionString = Configuration.GetConnectionString("Quest_WebApi");
-
-            services.AddCors(cors =>
+            .AddNewtonsoftJson(options =>
             {
-                cors.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                // Ignora os loopings nas consultas
+
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+                // Ignora valores nulos ao fazer junções nas consultas
+
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
 
-            
-
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
-            services.AddAuthentication(auth =>
-            {
-                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(authJwt =>
-            {
-                authJwt.RequireHttpsMetadata = false;
-                authJwt.SaveToken = true;
-                authJwt.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy",
+                    builder => {
+                        builder.WithOrigins("http://localhost:3000", "http://localhost:19006", "http://localhost:19002")
+                                                                    .AllowAnyHeader()
+                                                                    .AllowAnyMethod();
+                    }
+                );
             });
 
-            services.AddDbContext<QuestContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddControllers();
+            // Register the Swagger generator, defining 1 or more Swagger documents
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Quest_WebApi", Version = "v1" });
 
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                          new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Type = ReferenceType.SecurityScheme,
-                                    Id = "Bearer"
-                                }
-                            },
-                            new string[] {}
-
-                    }
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
-                        },
-                        new[] { "readAccess", "writeAccess" }
-                    }
-                });
-
-
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
+
+
+            //define a forma de autenticação : no caso usaremos o (JwtBearer)
+            services
+                    .AddAuthentication(options =>
+                    {
+                        options.DefaultAuthenticateScheme = "JwtBearer";
+                        options.DefaultChallengeScheme = "JwtBearer";
+                    })
+
+
+                //define os parametros de validação do token
+                .AddJwtBearer("JwtBearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        //quem está emitindo
+                        ValidateIssuer = true,
+
+                        //quem está validando
+                        ValidateAudience = true,
+
+                        //define que o tempo de expiração será validado
+                        ValidateLifetime = true,
+
+                        //forma de criptografia
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Quest-chave-autenticacao")),
+
+                        //tempo de expiração do token
+                        ClockSkew = TimeSpan.FromMinutes(30),
+
+                        //nome do issuer, de onde está vindo
+                        ValidIssuer = "Quest_WebApi",
+
+                        //nome do audience, de onde está indo
+                        ValidAudience = "Quest_WebApi"
+                    };
+                });
         }
 
 
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -147,7 +130,6 @@ namespace Quest_WebApi
             {
                 endpoints.MapControllers();
             });
-
         }
     }
 }   

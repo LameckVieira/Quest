@@ -379,10 +379,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
+      "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "5.0.0"
+          "Microsoft.Extensions.Primitives": "2.2.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
@@ -411,20 +411,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Hosting.Abstractions/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/5.0.0": {
@@ -730,42 +716,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
-        }
-      },
-      "NLog/5.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
-        }
-      },
-      "NLog.Extensions.Hosting/5.0.4": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Hosting.Abstractions": "5.0.0",
-          "NLog.Extensions.Logging": "5.0.4"
-        },
-        "compile": {
-          "lib/net5.0/NLog.Extensions.Hosting.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/NLog.Extensions.Hosting.dll": {}
-        }
-      },
-      "NLog.Extensions.Logging/5.0.4": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Logging": "5.0.0",
-          "NLog": "5.0.4"
-        },
-        "compile": {
-          "lib/net5.0/NLog.Extensions.Logging.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/NLog.Extensions.Logging.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -2405,7 +2355,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "UmbracoCms.Core/8.18.5": {
+      "UmbracoCms.Core/8.1.0": {
         "type": "package",
         "compile": {
           "lib/net472/Umbraco.Core.dll": {}
@@ -3182,24 +3132,17 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
-      "sha512": "iuZIiZ3mteEb+nsUqpGXKx2cGF+cv6gWPd5jqQI4hzqdiJ6I94ddLjKhQOuRW1lueHwocIw30xbSHGhQj0zjdQ==",
+    "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+      "sha512": "EcnaSsPTqx2MGnHrmWOD0ugbuuqVT8iICqSqPzi45V5/MA1LjUNb0kwgcxBGqizV1R+WeBK7/Gw25Jzkyk9bIw==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/5.0.0",
+      "path": "microsoft.extensions.fileproviders.abstractions/2.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.FileProviders.Abstractions.dll",
-        "lib/net461/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
-        "microsoft.extensions.fileproviders.abstractions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.FileProviders.Physical/2.2.0": {
@@ -3226,28 +3169,6 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
         "microsoft.extensions.filesystemglobbing.2.2.0.nupkg.sha512",
         "microsoft.extensions.filesystemglobbing.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Hosting.Abstractions/5.0.0": {
-      "sha512": "cbUOCePYBl1UhM+N2zmDSUyJ6cODulbtUd9gEzMFIK3RQDtP/gJsE08oLcBSXH3Q1RAQ0ex7OAB3HeTKB9bXpg==",
-      "type": "package",
-      "path": "microsoft.extensions.hosting.abstractions/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.Hosting.Abstractions.dll",
-        "lib/net461/Microsoft.Extensions.Hosting.Abstractions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.xml",
-        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll",
-        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.xml",
-        "microsoft.extensions.hosting.abstractions.5.0.0.nupkg.sha512",
-        "microsoft.extensions.hosting.abstractions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "Microsoft.Extensions.Logging/5.0.0": {
@@ -3731,72 +3652,6 @@
         "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.2.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
-      ]
-    },
-    "NLog/5.0.4": {
-      "sha512": "hMyC7jq1m7c339DZXTRz96b+0YsIYSwAUB8sAWMtqXd2uwJjYe+y1k74fbItODPqDuE/krd6A4mxew9gLMS+PQ==",
-      "type": "package",
-      "path": "nlog/5.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net35/NLog.dll",
-        "lib/net35/NLog.xml",
-        "lib/net45/NLog.dll",
-        "lib/net45/NLog.xml",
-        "lib/net46/NLog.dll",
-        "lib/net46/NLog.xml",
-        "lib/netstandard1.3/NLog.dll",
-        "lib/netstandard1.3/NLog.xml",
-        "lib/netstandard1.5/NLog.dll",
-        "lib/netstandard1.5/NLog.xml",
-        "lib/netstandard2.0/NLog.dll",
-        "lib/netstandard2.0/NLog.xml",
-        "nlog.5.0.4.nupkg.sha512",
-        "nlog.nuspec"
-      ]
-    },
-    "NLog.Extensions.Hosting/5.0.4": {
-      "sha512": "lKrgiGxrx989T9DF02vgnpi/IcwmP5FE1Zj2iFlxFvu8C5JKdxlywtmYhOEXq3lsbZbf7eRcs300iJcGysevjg==",
-      "type": "package",
-      "path": "nlog.extensions.hosting/5.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net5.0/NLog.Extensions.Hosting.dll",
-        "lib/net5.0/NLog.Extensions.Hosting.xml",
-        "lib/netcoreapp3.1/NLog.Extensions.Hosting.dll",
-        "lib/netcoreapp3.1/NLog.Extensions.Hosting.xml",
-        "lib/netstandard2.0/NLog.Extensions.Hosting.dll",
-        "lib/netstandard2.0/NLog.Extensions.Hosting.xml",
-        "nlog.extensions.hosting.5.0.4.nupkg.sha512",
-        "nlog.extensions.hosting.nuspec"
-      ]
-    },
-    "NLog.Extensions.Logging/5.0.4": {
-      "sha512": "43f4l7pY5cEjU/m2Xj4kDZhBmwS1xYP1kOzCQiXwv3PWpziGLfF8kA22idk+yRhMfNVExQ/OFnBaoxk6JB3JeA==",
-      "type": "package",
-      "path": "nlog.extensions.logging/5.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net461/NLog.Extensions.Logging.dll",
-        "lib/net461/NLog.Extensions.Logging.xml",
-        "lib/net5.0/NLog.Extensions.Logging.dll",
-        "lib/net5.0/NLog.Extensions.Logging.xml",
-        "lib/netcoreapp3.1/NLog.Extensions.Logging.dll",
-        "lib/netcoreapp3.1/NLog.Extensions.Logging.xml",
-        "lib/netstandard1.3/NLog.Extensions.Logging.dll",
-        "lib/netstandard1.3/NLog.Extensions.Logging.xml",
-        "lib/netstandard1.5/NLog.Extensions.Logging.dll",
-        "lib/netstandard1.5/NLog.Extensions.Logging.xml",
-        "lib/netstandard2.0/NLog.Extensions.Logging.dll",
-        "lib/netstandard2.0/NLog.Extensions.Logging.xml",
-        "nlog.extensions.logging.5.0.4.nupkg.sha512",
-        "nlog.extensions.logging.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -8226,17 +8081,17 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "UmbracoCms.Core/8.18.5": {
-      "sha512": "5u9Gkl01GrkO1jrS4ep3Dp1i9mvqO/uk3u0Xsih7xAQu26qVczaKsct5tCL+VV7VdlpCtGvyKvMAiM3IQVMpaQ==",
+    "UmbracoCms.Core/8.1.0": {
+      "sha512": "oqGcC99m+OgRpOfUDVJgYiR3WPSIYUQlPqbHnOd9nG5tMadCne/EBa/McTmYjZr6sBOaTEfZZ+a3D65XVg54Hw==",
       "type": "package",
-      "path": "umbracocms.core/8.18.5",
+      "path": "umbracocms.core/8.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net472/Umbraco.Core.dll",
         "lib/net472/Umbraco.Core.pdb",
         "lib/net472/Umbraco.Core.xml",
-        "umbracocms.core.8.18.5.nupkg.sha512",
+        "umbracocms.core.8.1.0.nupkg.sha512",
         "umbracocms.core.nuspec"
       ]
     },
@@ -8264,10 +8119,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
       "Microsoft.Extensions.Logging.Splunk >= 2.0.0",
-      "NLog.Extensions.Hosting >= 5.0.4",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "System.IdentityModel.Tokens.Jwt >= 6.23.1",
-      "UmbracoCms.Core >= 8.18.5",
       "UmbracoForms.Core >= 8.13.2"
     ]
   },
@@ -8277,11 +8130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lamec\\Desktop\\QuestApi\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\lamec\\Desktop\\Quest\\Nova pasta\\Quest\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
       "projectName": "Quest_WebApi",
-      "projectPath": "C:\\Users\\lamec\\Desktop\\QuestApi\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
+      "projectPath": "C:\\Users\\lamec\\Desktop\\Quest\\Nova pasta\\Quest\\Quest_WebApi\\Quest_WebApi\\Quest_WebApi.csproj",
       "packagesPath": "C:\\Users\\lamec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lamec\\Desktop\\QuestApi\\Quest_WebApi\\Quest_WebApi\\obj\\",
+      "outputPath": "C:\\Users\\lamec\\Desktop\\Quest\\Nova pasta\\Quest\\Quest_WebApi\\Quest_WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lamec\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8336,10 +8189,6 @@
             "target": "Package",
             "version": "[2.0.0, )"
           },
-          "NLog.Extensions.Hosting": {
-            "target": "Package",
-            "version": "[5.0.4, )"
-          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
@@ -8347,10 +8196,6 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[6.23.1, )"
-          },
-          "UmbracoCms.Core": {
-            "target": "Package",
-            "version": "[8.18.5, )"
           },
           "UmbracoForms.Core": {
             "target": "Package",
@@ -8390,7 +8235,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'UmbracoCms.Core 8.18.5' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "O pacote 'UmbracoCms.Core 8.1.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "UmbracoCms.Core",
       "targetGraphs": [
         "net5.0"

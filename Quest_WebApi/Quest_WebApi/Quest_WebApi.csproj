@@ -14,10 +14,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Splunk" Version="2.0.0" />
-    <PackageReference Include="NLog.Extensions.Hosting" Version="5.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
-    <PackageReference Include="UmbracoCms.Core" Version="8.18.5" />
     <PackageReference Include="UmbracoForms.Core" Version="8.13.2" />
   </ItemGroup>
 
