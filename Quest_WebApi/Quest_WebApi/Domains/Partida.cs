@@ -10,13 +10,13 @@ namespace Quest_WebApi.Domains
         public Partida()
         {
             PerguntasUsuarios = new HashSet<PerguntasUsuario>();
-            UsuarioPartida = new HashSet<UsuarioPartidum>();
+            UsuarioPartida = new HashSet<UsuarioPartida>();
         }
 
         public int IdPartida { get; set; }
         public int Pontuacao { get; set; }
 
         public virtual ICollection<PerguntasUsuario> PerguntasUsuarios { get; set; }
-        public virtual ICollection<UsuarioPartidum> UsuarioPartida { get; set; }
+        public virtual ICollection<UsuarioPartida> UsuarioPartida { get; set; }
     }
 }

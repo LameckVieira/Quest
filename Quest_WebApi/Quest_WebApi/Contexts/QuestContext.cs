@@ -24,7 +24,7 @@ namespace Quest_WebApi.Contexts
         public virtual DbSet<PerguntasUsuario> PerguntasUsuarios { get; set; }
         public virtual DbSet<Tema> Temas { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<UsuarioPartidum> UsuarioPartida { get; set; }
+        public virtual DbSet<UsuarioPartida> UsuarioPartida { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -144,7 +144,7 @@ namespace Quest_WebApi.Contexts
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<UsuarioPartidum>(entity =>
+            modelBuilder.Entity<UsuarioPartida>(entity =>
             {
                 entity.HasKey(e => e.IdUsuarioPartida)
                     .HasName("PK__UsuarioP__5A168A527F99C43C");

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Quest_WebApi.Domains
 {
-    public partial class UsuarioPartidum
+    public partial class UsuarioPartida
     {
         public int IdUsuarioPartida { get; set; }
         public int? IdUsuario { get; set; }

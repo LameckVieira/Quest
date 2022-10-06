@@ -10,7 +10,7 @@ namespace Quest_WebApi.Domains
         public Usuario()
         {
             PerguntasUsuarios = new HashSet<PerguntasUsuario>();
-            UsuarioPartida = new HashSet<UsuarioPartidum>();
+            UsuarioPartida = new HashSet<UsuarioPartida>();
         }
 
         public int IdUsuario { get; set; }
@@ -20,6 +20,6 @@ namespace Quest_WebApi.Domains
         public string Senha { get; set; }
 
         public virtual ICollection<PerguntasUsuario> PerguntasUsuarios { get; set; }
-        public virtual ICollection<UsuarioPartidum> UsuarioPartida { get; set; }
+        public virtual ICollection<UsuarioPartida> UsuarioPartida { get; set; }
     }
 }
