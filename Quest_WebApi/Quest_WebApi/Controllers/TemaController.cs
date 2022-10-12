@@ -12,14 +12,14 @@ namespace Quest_WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioPartidaController : ControllerBase
+    public class TemaController : ControllerBase
     {
 
-        private IUsuarioPartidaRepository _usuariopartidaRepository { get; set; }
+        private ITemaRepository _temaRepository { get; set; }
 
-        public UsuarioPartidaController()
+        public TemaController()
         {
-            _usuariopartidaRepository = new UsuarioPartidaRepository();
+            _temaRepository = new TemaRepository();
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Quest_WebApi.Controllers
         public IActionResult Get()
         {
             //retorna a resposta da  requisição fazendo uma chamada para o método
-            return Ok(_usuariopartidaRepository.Listar());
+            return Ok(_temaRepository.Listar());
         }
 
         /// <summary>
@@ -40,11 +40,11 @@ namespace Quest_WebApi.Controllers
         /// <param name="NovoUsuario">objeto NovoUsuario que será cadastrado</param>
         /// <returns>um statud code 201- Created</returns>
         [HttpPost]
-        public IActionResult Post(UsuarioPartida NovoUsuario)
+        public IActionResult Post(Tema NovoTema)
 
         {
             //faza a chamada para o método 
-            _usuariopartidaRepository.Cadastrar(NovoUsuario);
+            _temaRepository.Cadastrar(NovoTema);
 
             return StatusCode(201);
         }
@@ -57,10 +57,10 @@ namespace Quest_WebApi.Controllers
         /// <returns>Um status code 204 - No Content</returns>
         [Authorize]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, UsuarioPartida usuariopartidaAtualizada)
+        public IActionResult Put(int id, Tema temaAtualizada)
         {
             // Faz a chamada para o método
-            _usuariopartidaRepository.Atualizar(id, usuariopartidaAtualizada);
+            _temaRepository.Atualizar(id, temaAtualizada);
 
             // Retorna um status code
             return StatusCode(204);
@@ -69,7 +69,7 @@ namespace Quest_WebApi.Controllers
         [HttpGet("byname/{nome}")]
         public IActionResult GetByName(string nome)
         {
-            return Ok(_usuariopartidaRepository.BuscarPeloNome(nome));
+            return Ok(_temaRepository.BuscarPeloNome(nome));
         }
 
         [Authorize]
@@ -77,11 +77,12 @@ namespace Quest_WebApi.Controllers
         public IActionResult Delete(int id)
         {
             //faz a chamada para o método
-            _usuariopartidaRepository.Deletar(id);
+            _temaRepository.Deletar(id);
 
             //retorna um status code
             return StatusCode(204);
         }
+        
 
     }
 }

@@ -39,7 +39,12 @@ namespace Quest_WebApi.Interfaces
         /// <param name="UsuarioPartida">Objeto usuarioAtualizado com as novas informações</param>
         void Atualizar(int id, UsuarioPartida UsuarioPartidaAtualizada);
 
-        List<UsuarioPartida> MeusDados(int idUsuario);
+        /// <summary>
+        /// Busca um usuario pelo nome
+        /// </summary>
+        /// <param name="nome">Nome do usuario que será buscado</param>
+        /// <returns>Um usuario buscado</returns>
+        Usuario BuscarPeloNome(string nome);
 
     }
 }

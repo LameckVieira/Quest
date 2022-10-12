@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Quest_WebApi.Domains;
 using Quest_WebApi.Interfaces;
 using Quest_WebApi.Repositories;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace Quest_WebApi.Controllers
 {
@@ -112,6 +116,47 @@ namespace Quest_WebApi.Controllers
 
             // Retorna um status code
             return StatusCode(200);
+        }
+
+        [Authorize]
+        [HttpGet("meusDados/{id}")]
+        public IActionResult MeusDados(int id)
+        {
+            try
+            {
+
+
+                return Ok(_usuarioRepository.MeusDados(id));
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não é possível mostrar as consultas se o usuário não estiver logado!",
+                    erro
+                });
+            }
+        }
+
+        [Authorize]
+        [HttpPut("atualizarMeuDados")]
+        public IActionResult atualizarMeuDados()
+        {
+            try
+            {
+
+                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                return Ok(_usuarioRepository.MeusDados(idUsuario));
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não é possível mostrar as consultas se o usuário não estiver logado!",
+                    erro
+                });
+            }
         }
     }
 }

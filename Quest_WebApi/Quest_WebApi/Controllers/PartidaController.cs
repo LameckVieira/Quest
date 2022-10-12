@@ -4,22 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 using Quest_WebApi.Domains;
 using Quest_WebApi.Interfaces;
 using Quest_WebApi.Repositories;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 
 namespace Quest_WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioPartidaController : ControllerBase
+    public class PartidaController : ControllerBase
     {
 
-        private IUsuarioPartidaRepository _usuariopartidaRepository { get; set; }
+        private IPartidaRepository _partidaRepository { get; set; }
 
-        public UsuarioPartidaController()
+        public PartidaController()
         {
-            _usuariopartidaRepository = new UsuarioPartidaRepository();
+            _partidaRepository = new PartidaRepository();
         }
 
         /// <summary>
@@ -31,7 +28,7 @@ namespace Quest_WebApi.Controllers
         public IActionResult Get()
         {
             //retorna a resposta da  requisição fazendo uma chamada para o método
-            return Ok(_usuariopartidaRepository.Listar());
+            return Ok(_partidaRepository.Listar());
         }
 
         /// <summary>
@@ -40,11 +37,11 @@ namespace Quest_WebApi.Controllers
         /// <param name="NovoUsuario">objeto NovoUsuario que será cadastrado</param>
         /// <returns>um statud code 201- Created</returns>
         [HttpPost]
-        public IActionResult Post(UsuarioPartida NovoUsuario)
+        public IActionResult Post(Partida NovoTema)
 
         {
             //faza a chamada para o método 
-            _usuariopartidaRepository.Cadastrar(NovoUsuario);
+            _partidaRepository.Cadastrar(NovoTema);
 
             return StatusCode(201);
         }
@@ -57,19 +54,19 @@ namespace Quest_WebApi.Controllers
         /// <returns>Um status code 204 - No Content</returns>
         [Authorize]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, UsuarioPartida usuariopartidaAtualizada)
+        public IActionResult Put(int id, Partida temaAtualizada)
         {
             // Faz a chamada para o método
-            _usuariopartidaRepository.Atualizar(id, usuariopartidaAtualizada);
+            _partidaRepository.Atualizar(id, temaAtualizada);
 
             // Retorna um status code
             return StatusCode(204);
         }
 
         [HttpGet("byname/{nome}")]
-        public IActionResult GetByName(string nome)
+        public IActionResult GetByName(int pontuacao)
         {
-            return Ok(_usuariopartidaRepository.BuscarPeloNome(nome));
+            return Ok(_partidaRepository.BuscarPelaPontucao(pontuacao));
         }
 
         [Authorize]
@@ -77,7 +74,7 @@ namespace Quest_WebApi.Controllers
         public IActionResult Delete(int id)
         {
             //faz a chamada para o método
-            _usuariopartidaRepository.Deletar(id);
+            _partidaRepository.Deletar(id);
 
             //retorna um status code
             return StatusCode(204);

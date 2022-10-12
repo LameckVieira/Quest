@@ -47,9 +47,14 @@ namespace Quest_WebApi.Repositories
             ctx.SaveChanges();
         }
 
+        public Usuario BuscarPeloNome(string nome)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public UsuarioPartida BuscarPorId(int id)
         {
-            return ctx.UsuarioPartida.FirstOrDefault(u => u.Resultado == id);
+            return ctx.UsuarioPartida.FirstOrDefault(u => u.IdUsuarioPartida == id);
         }
 
         public void Cadastrar(UsuarioPartida novaUsuarioPartida)
@@ -76,17 +81,6 @@ namespace Quest_WebApi.Repositories
         public List<UsuarioPartida> Listar()
         {
             return ctx.UsuarioPartida.ToList();
-        }
-
-        public List<UsuarioPartida> MeusDados(int idUsuario)
-        {
-            return ctx.UsuarioPartida
-
-           .Include(c => c.IdUsuarioNavigation)
-
-           .Where(c => c.IdUsuarioNavigation.IdUsuario == idUsuario)
-
-           .ToList();
         }
     }
 }

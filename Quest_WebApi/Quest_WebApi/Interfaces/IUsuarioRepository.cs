@@ -53,5 +53,8 @@ namespace Quest_WebApi.Interfaces
         /// <returns>Um objeto do tipo usuario que foi buscado</returns>
         Usuario Login(string email, string senha);
 
+
+        List<Usuario> MeusDados(int idUsuario);
+
     }
 }

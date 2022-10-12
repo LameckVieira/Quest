@@ -91,5 +91,9 @@ namespace Quest_WebApi.Repositories
             return ctx.Usuarios.FirstOrDefault(l => l.Email == email && l.Senha == senha);
         }
 
+        public List<Usuario> MeusDados(int idUsuario)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
