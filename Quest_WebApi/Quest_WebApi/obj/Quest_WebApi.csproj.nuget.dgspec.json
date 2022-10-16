@@ -66,9 +66,25 @@
               "target": "Package",
               "version": "[2.0.0, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

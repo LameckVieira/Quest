@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Quest_WebApi.Domains;
+using Umbraco.Core.Composing.CompositionExtensions;
+using Umbraco.Forms.Core;
+using Configuration = Umbraco.Core.Composing.CompositionExtensions.Configuration;
 
 #nullable disable
 
@@ -9,17 +12,13 @@ namespace Quest_WebApi.Contexts
 {
     public partial class QuestContext : DbContext
     {
-        protected readonly IConfiguration Configuration;
-
         public QuestContext()
         {
         }
 
         public QuestContext(DbContextOptions<QuestContext> options)
-            : base(options)
-        {
-            Configuration = configuration;
-        }
+            : base(options) => Configuration = configuration;
+        
 
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Partida> Partida { get; set; }
@@ -33,7 +32,7 @@ namespace Quest_WebApi.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 // optionsBuilder.UseSqlServer("Data Source=DESKTOP-QP4FDS5; initial catalog=Quest; Integrated Security=True;");
                 optionsBuilder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             }
