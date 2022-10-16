@@ -9,6 +9,8 @@ namespace Quest_WebApi.Contexts
 {
     public partial class QuestContext : DbContext
     {
+        protected readonly IConfiguration Configuration;
+
         public QuestContext()
         {
         }
@@ -16,6 +18,7 @@ namespace Quest_WebApi.Contexts
         public QuestContext(DbContextOptions<QuestContext> options)
             : base(options)
         {
+            Configuration = configuration;
         }
 
         public virtual DbSet<Categoria> Categorias { get; set; }
