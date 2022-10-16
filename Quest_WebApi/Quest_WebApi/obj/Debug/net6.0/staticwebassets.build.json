@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7EB+y0XlYwEU85sV8SB5FAoQRruZ34hKRBiEHb0HqFM=",
+  "Source": "Quest_WebApi",
+  "BasePath": "_content/Quest_WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

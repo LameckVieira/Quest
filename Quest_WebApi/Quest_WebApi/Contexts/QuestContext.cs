@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Quest_WebApi.Domains;
 using Umbraco.Core.Composing.CompositionExtensions;
 using Umbraco.Forms.Core;
-using Configuration = Umbraco.Core.Composing.CompositionExtensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -12,12 +12,23 @@ namespace Quest_WebApi.Contexts
 {
     public partial class QuestContext : DbContext
     {
-        public QuestContext()
+
+        protected readonly IConfiguration Configuration;
+        public QuestContext(IConfiguration configuration)
         {
+            Configuration = configuration;
         }
 
+        public QuestContext()
+        {
+
+        }
+            
         public QuestContext(DbContextOptions<QuestContext> options)
-            : base(options) => Configuration = configuration;
+            : base(options)
+        {
+            
+        } 
         
 
         public virtual DbSet<Categoria> Categorias { get; set; }
