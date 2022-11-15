@@ -1,5 +1,4 @@
-﻿using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +9,9 @@ namespace Quest_WebApi.Repositories
     {
         QuestContext ctx = new QuestContext();
 
-        public void Atualizar(int id, Pergunta PerguntaAtualizada)
+        public void Atualizar(int id, Perguntas PerguntaAtualizada)
         {
-            Pergunta perguntaBuscados = ctx.Perguntas.Find(id);
+            Perguntas perguntaBuscados = ctx.Pergunta.Find(id);
 
             if (perguntaBuscados.IdPergunta != null)
             {
@@ -20,50 +19,50 @@ namespace Quest_WebApi.Repositories
                 perguntaBuscados.IdPergunta = PerguntaAtualizada.IdPergunta;
             }
 
-            if (perguntaBuscados.IdTema != null)
+            if (perguntaBuscados.IdPTema != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntaBuscados.IdTema = PerguntaAtualizada.IdTema;
+                perguntaBuscados.IdPTema = PerguntaAtualizada.IdPTema;
             }
 
-            if (perguntaBuscados.Perguntas != null)
+            if (perguntaBuscados.Pergunta != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntaBuscados.Perguntas = PerguntaAtualizada.Perguntas;
+                perguntaBuscados.Pergunta = PerguntaAtualizada.Pergunta;
             }
-            if (perguntaBuscados.Alternativa != null)
+            if (perguntaBuscados.Alternativas != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntaBuscados.Alternativa = PerguntaAtualizada.Alternativa;
+                perguntaBuscados.Alternativas = PerguntaAtualizada.Alternativas;
             }
-            if (perguntaBuscados.Resposta != null)
+            if (perguntaBuscados.Reposta != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntaBuscados.Resposta = PerguntaAtualizada.Resposta;
+                perguntaBuscados.Reposta = PerguntaAtualizada.Reposta;
             }
 
 
             // Atualiza o Usuariol que foi buscado
-            ctx.Perguntas.Update(perguntaBuscados);
+            ctx.Pergunta.Update(perguntaBuscados);
 
             // Salva as informações para serem gravadas no banco de dados
             ctx.SaveChanges();
         }
 
-        public Pergunta BuscarPeloNome(string nome)
+        public Perguntas BuscarPeloNome(string nome)
         {
-            return ctx.Perguntas.FirstOrDefault(u => u.Perguntas == nome);
+            return ctx.Pergunta.FirstOrDefault(u => u.Pergunta == nome);
         }
 
-        public Pergunta BuscarPorId(int id)
+        public Perguntas BuscarPorId(int id)
         {
-            return ctx.Perguntas.FirstOrDefault(u => u.IdPergunta == id);
+            return ctx.Pergunta.FirstOrDefault(u => u.IdPergunta == id);
         }
 
-        public void Cadastrar(Pergunta novaPergunta)
+        public void Cadastrar(Perguntas novaPergunta)
         {
             // Adiciona este novoUsuariol
-            ctx.Perguntas.Add(novaPergunta);
+            ctx.Pergunta.Add(novaPergunta);
 
             // Salva as informações para serem gravas no banco de dados
             ctx.SaveChanges();
@@ -81,9 +80,9 @@ namespace Quest_WebApi.Repositories
             ctx.SaveChanges();
         }
 
-        public List<Pergunta> Listar()
+        public List<Perguntas> Listar()
         {
-            return ctx.Perguntas.ToList();
+            return ctx.Pergunta.ToList();
         }
     }
 }

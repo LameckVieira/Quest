@@ -1,4 +1,4 @@
-﻿using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;
 using System.Collections.Generic;
 
 namespace Quest_WebApi.Interfaces

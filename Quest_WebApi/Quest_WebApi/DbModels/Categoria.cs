@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
-namespace Quest_WebApi.Domains
+namespace Quest_WebApi.DbModels
 {
     public partial class Categoria
     {
@@ -12,7 +10,7 @@ namespace Quest_WebApi.Domains
             Temas = new HashSet<Tema>();
         }
 
-        public int IdCategorias { get; set; }
+        public int IdCategoria { get; set; }
         public string NomeCategoria { get; set; }
 
         public virtual ICollection<Tema> Temas { get; set; }

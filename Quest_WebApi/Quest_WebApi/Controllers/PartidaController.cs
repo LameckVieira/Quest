@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Quest_WebApi.Domains;
+using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using Quest_WebApi.Repositories;
 

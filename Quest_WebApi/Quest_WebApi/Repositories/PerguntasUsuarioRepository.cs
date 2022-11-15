@@ -1,5 +1,4 @@
-﻿using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;  
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,55 +9,55 @@ namespace Quest_WebApi.Repositories
     {
         QuestContext ctx = new QuestContext();
 
-        public void Atualizar(int id, PerguntasUsuario PerguntasUsuarioAtualizada)
+        public void Atualizar(int id, PerguntaUsuario PerguntasUsuarioAtualizada)
         {
-            PerguntasUsuario perguntasUsuarioBuscados = ctx.PerguntasUsuarios.Find(id);
+            PerguntaUsuario perguntasUsuarioBuscados = ctx.PerguntaUsuarios.Find(id);
 
-            if (perguntasUsuarioBuscados.IdPerguntasUsuario != null)
+            if (perguntasUsuarioBuscados.IdRegistro != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntasUsuarioBuscados.IdPerguntasUsuario = PerguntasUsuarioAtualizada.IdPerguntasUsuario;
+                perguntasUsuarioBuscados.IdRegistro = PerguntasUsuarioAtualizada.IdRegistro;
             }
 
-            if (perguntasUsuarioBuscados.IdPartida != null)
+            if (perguntasUsuarioBuscados.IdPuPergunta != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntasUsuarioBuscados.IdPartida = PerguntasUsuarioAtualizada.IdPartida;
+                perguntasUsuarioBuscados.IdPuPergunta = PerguntasUsuarioAtualizada.IdPuPergunta;
             }
 
-            if (perguntasUsuarioBuscados.IdUsuario != null)
+            if (perguntasUsuarioBuscados.IdPuUsuarioPartida != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntasUsuarioBuscados.IdUsuario = PerguntasUsuarioAtualizada.IdUsuario;
+                perguntasUsuarioBuscados.IdPuUsuarioPartida = PerguntasUsuarioAtualizada.IdPuUsuarioPartida;
             }
-            if (perguntasUsuarioBuscados.Resultado != null)
+            if (perguntasUsuarioBuscados.Status != null)
             {
                 // Atribui os novos valores aos campos existentes
-                perguntasUsuarioBuscados.Resultado = PerguntasUsuarioAtualizada.Resultado;
+                perguntasUsuarioBuscados.Status = PerguntasUsuarioAtualizada.Status;
             }
 
 
             // Atualiza o Usuariol que foi buscado
-            ctx.PerguntasUsuarios.Update(perguntasUsuarioBuscados);
+            ctx.PerguntaUsuarios.Update(perguntasUsuarioBuscados);
 
             // Salva as informações para serem gravadas no banco de dados
             ctx.SaveChanges();
         }
 
-        public PerguntasUsuario BuscarPeloResultado(int nome)
+        public PerguntaUsuario BuscarPeloResultado(int nome)
         {
-            return ctx.PerguntasUsuarios.FirstOrDefault(u => u.Resultado == nome);
+            return ctx.PerguntaUsuarios.FirstOrDefault(u => u.IdRegistro == nome);
         }
 
-        public PerguntasUsuario BuscarPorId(int id)
+        public PerguntaUsuario BuscarPorId(int id)
         {
-            return ctx.PerguntasUsuarios.FirstOrDefault(u => u.IdUsuario == id);
+            return ctx.PerguntaUsuarios.FirstOrDefault(u => u.IdPuUsuarioPartida == id);
         }
 
-        public void Cadastrar(PerguntasUsuario novaPerguntasUsuario)
+        public void Cadastrar(PerguntaUsuario novaPerguntasUsuario)
         {
             // Adiciona este novoUsuariol
-            ctx.PerguntasUsuarios.Add(novaPerguntasUsuario);
+            ctx.PerguntaUsuarios.Add(novaPerguntasUsuario);
 
             // Salva as informações para serem gravas no banco de dados
             ctx.SaveChanges();
@@ -67,18 +66,18 @@ namespace Quest_WebApi.Repositories
         public void Deletar(int id)
         {
             // Busca um Usuariol através do seu id
-            PerguntasUsuario perguntasUsuarioBuscados = ctx.PerguntasUsuarios.Find(id);
+            PerguntaUsuario perguntasUsuarioBuscados = ctx.PerguntaUsuarios.Find(id);
 
             // Remove o Usuariol que foi buscado
-            ctx.PerguntasUsuarios.Remove(perguntasUsuarioBuscados);
+            ctx.PerguntaUsuarios.Remove(perguntasUsuarioBuscados);
 
             // Salva as alterações no banco de dados
             ctx.SaveChanges();
         }
 
-        public List<PerguntasUsuario> Listar()
+        public List<PerguntaUsuario> Listar()
         {
-            return ctx.PerguntasUsuarios.ToList();
+            return ctx.PerguntaUsuarios.ToList();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +15,10 @@ namespace Quest_WebApi.Repositories
         {
             UsuarioPartida UsuarioParidaBuscado = ctx.UsuarioPartida.Find(id);
 
-            if (UsuarioParidaBuscado.IdUsuarioPartida != null)
+            if (UsuarioParidaBuscado.IdUsuariioPartida != null)
             {
                 // Atribui os novos valores aos campos existentes
-                UsuarioParidaBuscado.IdUsuarioPartida = UsuarioPartidaAtualizada.IdUsuarioPartida;
+                UsuarioParidaBuscado.IdUsuariioPartida = UsuarioPartidaAtualizada.IdUsuariioPartida;
             }
 
             if (UsuarioParidaBuscado.Resultado != null)
@@ -28,16 +27,16 @@ namespace Quest_WebApi.Repositories
                 UsuarioParidaBuscado.Resultado = UsuarioPartidaAtualizada.Resultado;
             }
 
-            if (UsuarioPartidaAtualizada.IdUsuario != null)
+            if (UsuarioPartidaAtualizada.IdUpUsuario != null)
             {
                 // Atribui os novos valores aos campos existentes
-                UsuarioParidaBuscado.IdUsuario = UsuarioPartidaAtualizada.IdUsuario;
+                UsuarioParidaBuscado.IdUpUsuario = UsuarioPartidaAtualizada.IdUpUsuario;
             }
 
-            if (UsuarioPartidaAtualizada.IdPartida != null)
+            if (UsuarioPartidaAtualizada.IdUpPartida != null)
             {
                 // Atribui os novos valores aos campos existentes
-                UsuarioParidaBuscado.IdPartida = UsuarioPartidaAtualizada.IdPartida;
+                UsuarioParidaBuscado.IdUpPartida = UsuarioPartidaAtualizada.IdUpPartida;
             }
 
             // Atualiza o Usuariol que foi buscado
@@ -54,7 +53,7 @@ namespace Quest_WebApi.Repositories
 
         public UsuarioPartida BuscarPorId(int id)
         {
-            return ctx.UsuarioPartida.FirstOrDefault(u => u.IdUsuarioPartida == id);
+            return ctx.UsuarioPartida.FirstOrDefault(u => u.IdUsuariioPartida == id);
         }
 
         public void Cadastrar(UsuarioPartida novaUsuarioPartida)

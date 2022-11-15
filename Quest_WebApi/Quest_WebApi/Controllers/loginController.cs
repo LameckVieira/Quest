@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Quest_WebApi.Domains;
+using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using Quest_WebApi.Repositories;
 using System;

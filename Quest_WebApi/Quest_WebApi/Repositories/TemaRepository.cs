@@ -1,5 +1,4 @@
-﻿using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +26,10 @@ namespace Quest_WebApi.Repositories
                 temaBuscados.NomeTema = TemaAtualizado.NomeTema;
             }
 
-            if (TemaAtualizado.IdCategorias != null)
+            if (TemaAtualizado.IdCategoria != null)
             {
                 // Atribui os novos valores aos campos existentes
-                temaBuscados.IdCategorias = TemaAtualizado.IdCategorias;
+                temaBuscados.IdCategoria = TemaAtualizado.IdCategoria;
             }
 
 

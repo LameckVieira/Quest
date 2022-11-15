@@ -1,5 +1,4 @@
-﻿using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;

@@ -23,4 +23,8 @@
     <PackageReference Include="UmbracoForms.Core" Version="8.13.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contexts\" />
+  </ItemGroup>
+
 </Project>

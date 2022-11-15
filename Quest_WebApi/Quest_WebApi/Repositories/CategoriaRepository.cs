@@ -1,5 +1,4 @@
-﻿using Quest_WebApi.Contexts;
-using Quest_WebApi.Domains;
+﻿using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +11,12 @@ namespace Quest_WebApi.Repositories
 
         public void Atualizar(int id, Categoria CategoriaAtualizada)
         {
-            Categoria categoriaBuscados = ctx.Categorias.Find(id);
+            Categoria categoriaBuscados = ctx.Categoria.Find(id);
 
-            if (categoriaBuscados.IdCategorias != null)
+            if (categoriaBuscados.IdCategoria != null)
             {
                 // Atribui os novos valores aos campos existentes
-                categoriaBuscados.IdCategorias = CategoriaAtualizada.IdCategorias;
+                categoriaBuscados.IdCategoria = CategoriaAtualizada.IdCategoria;
             }
 
             if (categoriaBuscados.NomeCategoria != null)
@@ -28,7 +27,7 @@ namespace Quest_WebApi.Repositories
 
 
             // Atualiza o Usuariol que foi buscado
-            ctx.Categorias.Update(categoriaBuscados);
+            ctx.Categoria.Update(categoriaBuscados);
 
             // Salva as informações para serem gravadas no banco de dados
             ctx.SaveChanges();
@@ -36,18 +35,18 @@ namespace Quest_WebApi.Repositories
 
         public Categoria BuscarPeloNome(string nome)
         {
-            return ctx.Categorias.FirstOrDefault(u => u.NomeCategoria == nome);
+            return ctx.Categoria.FirstOrDefault(u => u.NomeCategoria == nome);
         }
 
         public Categoria BuscarPorId(int id)
         {
-            return ctx.Categorias.FirstOrDefault(u => u.IdCategorias == id);
+            return ctx.Categoria.FirstOrDefault(u => u.IdCategoria == id);
         }
 
         public void Cadastrar(Categoria novaCategoria)
         {
             // Adiciona este novoUsuariol
-            ctx.Categorias.Add(novaCategoria);
+            ctx.Categoria.Add(novaCategoria);
 
             // Salva as informações para serem gravas no banco de dados
             ctx.SaveChanges();
@@ -56,10 +55,10 @@ namespace Quest_WebApi.Repositories
         public void Deletar(int id)
         {
             // Busca um Usuariol através do seu id
-            Categoria categoriaBuscados = ctx.Categorias.Find(id);
+            Categoria categoriaBuscados = ctx.Categoria.Find(id);
 
             // Remove o Usuariol que foi buscado
-            ctx.Categorias.Remove(categoriaBuscados);
+            ctx.Categoria.Remove(categoriaBuscados);
 
             // Salva as alterações no banco de dados
             ctx.SaveChanges();
@@ -67,7 +66,7 @@ namespace Quest_WebApi.Repositories
 
         public List<Categoria> Listar()
         {
-            return ctx.Categorias.ToList();
+            return ctx.Categoria.ToList();
         }
     }
 }

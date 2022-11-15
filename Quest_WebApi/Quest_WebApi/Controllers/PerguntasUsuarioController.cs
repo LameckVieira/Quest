@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Quest_WebApi.Domains;
+using Quest_WebApi.DbModels;
 using Quest_WebApi.Interfaces;
 using Quest_WebApi.Repositories;
 
@@ -37,7 +37,7 @@ namespace Quest_WebApi.Controllers
         /// <param name="NovoUsuario">objeto NovoUsuario que será cadastrado</param>
         /// <returns>um statud code 201- Created</returns>
         [HttpPost]
-        public IActionResult Post(PerguntasUsuario NovoTema)
+        public IActionResult Post(PerguntaUsuario NovoTema)
 
         {
             //faza a chamada para o método 
@@ -54,7 +54,7 @@ namespace Quest_WebApi.Controllers
         /// <returns>Um status code 204 - No Content</returns>
         [Authorize]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, PerguntasUsuario temaAtualizada)
+        public IActionResult Put(int id, PerguntaUsuario temaAtualizada)
         {
             // Faz a chamada para o método
             _perguntasUsuarioRepository.Atualizar(id, temaAtualizada);
